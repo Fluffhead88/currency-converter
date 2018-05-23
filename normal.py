@@ -11,40 +11,46 @@ class Money:
 
     def to_usd(self):
         if self.amount != 0:
-            return Money(self.amount * 1, "USD")
+            return Money(self.amount * 1, self.sym)
         else:
             return self
 
     def to_jpy(self):
         if self.amount != 0:
-            return Money(self.amount * 110.272, "JPY")
+            return Money(self.amount * 110.084, self.sym)
         else:
             return self
 
     def to_eur(self):
         if self.amount != 0:
-            return Money(self.amount * 0.856046, "EUR")
+            return Money(self.amount * 0.854739, self.sym)
         else:
             return self
 
-    def to_btc(self):
+    def to_xbt(self):
         if self.amount != 0:
-            return Money(self.amount * 0.000132802, "BTC")
+            return Money(self.amount * 0.000133278, self.sym)
         else:
             return self
 
-t = Money(100.00, "USD") + Money(56.32, "EUR")
-print(t.to_usd().amount)
-print(t.to_usd().sym)
+    def to_symbol(self):
+        if to_usd():
+            self.sym = "USD"
+        if to_jpy():
+            self.sym = "JPY"
+        if to_eur():
+            self.sym = "EUR"
+        if to_xbt():
+            self.sym = "XBT"
 
-"""x = Money(2, "JPY")
-print(x.to_jpy().amount)
-print(x.to_jpy().sym)
 
-y = Money(2, "EUR")
-print(y.to_eur().amount)
-print(y.to_eur().sym)
+x = Money(1, "JPY")
+print(x.to_jpy().amount, x.to_jpy().sym)
 
-z = Money(2, "BTC")
-print(z.to_btc().amount)
-print(z.to_btc().sym)"""
+
+y = Money(1, "EUR")
+print(y.to_eur().amount, y.to_eur().sym)
+
+
+z = Money(1, "XBT")
+print(z.to_xbt().amount, z.to_xbt().sym)
